@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
-const char* ssid = "Access Point Name";
-const char* password = "Password";
+const char* ssid = "esp32_test_server";
+const char* password = "hoeflersig";
 
 WiFiServer server(80);
 
@@ -10,6 +10,8 @@ String host;
 void setup()
 {
     Serial.begin(115200);
+
+    //while(!Serial) delay(10);
 
     Serial.println("Connecting to" + String(ssid));
     WiFi.begin(ssid, password);
@@ -86,4 +88,3 @@ void sendResponse(String reqFirstLine, WiFiClient client) {
 
   client.println();
 }
-
